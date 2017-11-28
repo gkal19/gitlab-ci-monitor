@@ -69,9 +69,9 @@ var app = new Vue({
             branch = repository[2].trim()
           }
           this.repositories.push({
-            nameWithNamespace: nameWithNamespace,
-            projectName: projectName,
-            branch: branch
+            nameWithNamespace,
+            projectName,
+            branch
           })
         }
         catch(err) {
