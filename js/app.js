@@ -28,7 +28,7 @@ var app = new Vue({
     invalidConfig: false,
     onError: null
   },
-  created: function() {
+  created() {
     this.loadConfig()
 
     if (!this.configValid()) {
@@ -46,7 +46,7 @@ var app = new Vue({
     }, 60000)
   },
   methods: {
-    loadConfig: function() {
+    loadConfig() {
       this.gitlab = getParameterByName("gitlab")
       this.token = getParameterByName("token")
       this.ref = getParameterByName("ref")
@@ -79,7 +79,7 @@ var app = new Vue({
         }
       };
     },
-    configValid: function() {
+    configValid() {
       valid = true
       if (this.repositories == null || this.token == null || this.gitlab == null) {
         valid = false
@@ -87,7 +87,7 @@ var app = new Vue({
 
       return valid
     },
-    setupDefaults: function() {
+    setupDefaults() {
       axios.defaults.baseURL = "https://" + this.gitlab + "/api/v3"
       axios.defaults.headers.common['PRIVATE-TOKEN'] = this.token
     },
